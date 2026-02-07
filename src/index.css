@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 42 100% 70%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 42 100% 70%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 42 100% 70%;
+    --radius: 0.75rem;
+    --gold: #ffc465;
+    --gold-light: #feb;
+    --black: #0a0a0a;
+    --black-light: #1a1a1a;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-white font-sans antialiased;
+    font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  .text-gold {
+    color: var(--gold);
+  }
+  
+  .bg-gold {
+    background-color: var(--gold);
+  }
+  
+  .border-gold {
+    border-color: var(--gold);
+  }
+  
+  .btn-primary {
+    @apply px-8 py-4 border border-gold text-gold bg-transparent 
+           transition-all duration-300 ease-out
+           hover:bg-gold hover:text-black;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-4 bg-gold text-black 
+           transition-all duration-300 ease-out
+           hover:bg-gold-light;
+  }
+  
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-sm border border-white/10 rounded-2xl;
+  }
+  
+  .section-padding {
+    @apply py-24 md:py-32 px-4 sm:px-6 lg:px-8 xl:px-12;
+  }
+  
+  .heading-xl {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif leading-tight;
+  }
+  
+  .heading-lg {
+    @apply text-3xl sm:text-4xl md:text-5xl font-serif leading-tight;
+  }
+  
+  .heading-md {
+    @apply text-2xl sm:text-3xl font-serif;
+  }
+  
+  .body-text {
+    @apply text-sm md:text-base text-white/70 leading-relaxed font-light;
+  }
+  
+  .label-text {
+    @apply text-xs uppercase tracking-[0.2em] text-gold font-medium;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .perspective-1500 {
+    perspective: 1500px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+  
+  .text-shadow-gold {
+    text-shadow: 0 0 40px rgba(255, 196, 101, 0.3);
+  }
+  
+  .gradient-gold {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+  }
+  
+  .gradient-dark {
+    background: linear-gradient(180deg, var(--black) 0%, var(--black-light) 100%);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grey);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Selection */
+::selection {
+  background: var(--gold);
+  color: var(--black);
+}
